@@ -18,9 +18,6 @@ Module.register('MMM-HS3_device_value',{
 
         initialLoadDelay: 0, // 0 seconds delay
         retryDelay: 2500,
-
-        //fileUrl: "https://www.dropbox.com/s/k1t6mjjc3knxp3a/dataset.json?raw=1"
-        //url: "http://192.168.0.129:10080/JSON?request=getstatus&ref=216"
     },
 
     // Define required scripts.
@@ -30,7 +27,7 @@ Module.register('MMM-HS3_device_value',{
 
     // Define requird styles
     getStyles: function() {
-        return ["font-awesome.css"];
+        return ["MMM-HS3_device_value.css"];
     },
 
     start: function() {
@@ -55,10 +52,9 @@ Module.register('MMM-HS3_device_value',{
             return wrapper;
         }
 
-        var t = this.data.Devices[0];
+        var t = this.data.Devices[0].status;
         var content = document.createElement("div");
-        content.innerHTML = ""; //"<hr><br />";
-        content.innerHTML += t.status;
+        content.innerHTML = ("<span class=deviceDescription>" + this.config.description + "</span><span class=deviceValue>" + t + "</span>");
         wrapper.appendChild(content);
 
         return wrapper;

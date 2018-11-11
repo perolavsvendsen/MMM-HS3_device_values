@@ -1,0 +1,20 @@
+.deviceValue {
+  color: white;
+  /* width: 0; */
+  /* height: 0; */
+  /* position: absolute;
+  /*top: 50%;
+  /*left: 50%;
+  /*margin: -35% -2px 0;    /* numbers must match negative length & thickness */
+  /*padding: 35% 2px 0; /* indicator length & thickness */
+  /*background: white;
+  /*-webkit-transform-origin: 50% 100%;*/
+  /* -ms-transform-origin: 50% 100%; */
+  /* transform-origin: 50% 100%; */
+  /*border-radius: 3px 0 0 3px; */
+}
+
+.deviceDescription {
+  vertical-align: top;
+  font-size: 70%;
+}
