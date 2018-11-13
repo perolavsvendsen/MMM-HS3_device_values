@@ -11,8 +11,8 @@ Module.register('MMM-HS3_device_value',{
     defaults: {
         units: config.units,
         animationSpeed: 1000,
-        updateInterval: 1000 * 3600, //update every hour
-        refreshInterval: 1000 * 60 * 10, //refresh every minute     
+        updateInterval: 1000 * 60 * 15, //update every 15 min
+        refreshInterval: 1000 * 60 * 15, //refresh every 15 min     
         timeFormat: config.timeFormat,
         lang: config.language,
 
@@ -52,9 +52,36 @@ Module.register('MMM-HS3_device_value',{
             return wrapper;
         }
 
-        var t = this.data.Devices[0].status;
+        //var myStringArray = ["Hello","World"];
+        //var arrayLength = myStringArray.length;
+        //for (var i = 0; i < arrayLength; i++) {
+        //    alert(myStringArray[i]);
+        //    //Do something
+        //}
+
+        //var i;
+        //for (i = 0; i < cars.length; i++) { 
+        //    text += cars[i] + "<br>";
+        //}
+
+
         var content = document.createElement("div");
-        content.innerHTML = ("<span class=deviceDescription>" + this.config.description + "</span><span class=deviceValue>" + t + "</span>");
+        content.innerHTML = ""
+        datablocks = this.data.Devices.reverse()
+        for (var i = 0; i < datablocks.length; i++) {
+            var t = datablocks[i].status;
+            var d = this.config.description[i];
+            content.innerHTML += ("<span class=deviceDescription>" + d + "</span><span class=deviceValue>" + t + "</span><br />");
+        };
+
+        // content.innerHTML = "hei"
+        // content.innerHTML += "kdfvjf"
+        // 
+        // for (var i = 0; i < 2; i++) {
+        //     content.innerHTML += this.config.description[i]
+        // };
+
+        
         wrapper.appendChild(content);
 
         return wrapper;
